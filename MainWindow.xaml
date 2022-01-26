@@ -6,19 +6,82 @@
         xmlns:local="clr-namespace:Board"
         mc:Ignorable="d"
         Title="Board" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid>
+    <Window.Resources>
+        <Style x:Key="buttonStyle">
+            <Setter Property="ItemsControl.Height" Value="30"/>
+            <Setter Property="ItemsControl.Width" Value="30"/>
+            <Setter Property="ItemsControl.Foreground" Value="White"/>
+            <Setter Property="ItemsControl.FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="separatorStyle">
+            <Setter Property="ItemsControl.Background" Value="Black"/>
+        </Style>
+        <Style x:Key="backgroundStyle">
+            <Setter Property="ItemsControl.Background" Value="AliceBlue"/>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="grid1">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Menu x:Name="menu" Grid.Row="0">
-            <MenuItem></MenuItem>
-            <MenuItem></MenuItem>
+        <Menu x:Name="menu" Grid.Row="0" FontSize="15" Style="{StaticResource backgroundStyle}">
+            <MenuItem Header="File" Height="30">
+                <MenuItem Header="Clear All" Click="ClearAllClick"/>
+                <Separator Style="{StaticResource separatorStyle}"/>
+                <MenuItem Header="Exit" Click="ExitClick"/>
+            </MenuItem>
         </Menu>
-        <ToolBar x:Name="toolBar" Grid.Row="1"></ToolBar>
-        <InkCanvas x:Name="inkCanvas" Grid.Row="2"></InkCanvas>
-        <StatusBar x:Name="statusBar" Grid.Row="3"></StatusBar>
+        <ToolBar x:Name="toolBar" Grid.Row="1">
+            <Separator Style="{StaticResource separatorStyle}" Margin="30 0 0 0"/>
+            <Button x:Name="btnHor1" Background="Black" Style="{StaticResource buttonStyle}" Click="SBlackClick" Content="B"/>
+            <Separator Style="{StaticResource separatorStyle}"/>
+            <Button x:Name="btnHor2" Background="Red" Style="{StaticResource buttonStyle}" Click="SRedClick" Content="R"/>
+            <Separator Style="{StaticResource separatorStyle}"/>
+            <Button x:Name="btnHor3" Background="Yellow" Style="{StaticResource buttonStyle}" Click="SYellowClick" Content="Y"/>
+            <Separator Style="{StaticResource separatorStyle}"/>
+            <Button x:Name="btnHor4" Background="Blue" Style="{StaticResource buttonStyle}" Click="SBlueClick" Content="B"/>
+            <Separator Style="{StaticResource separatorStyle}"/>
+            <Button x:Name="btnHor5" Background="Green" Style="{StaticResource buttonStyle}" Click="SGreenClick" Content="G"/>
+            <Separator Style="{StaticResource separatorStyle}"/>
+        </ToolBar>
+        <Grid x:Name="grid2" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ToolBarTray Grid.Column="0" Orientation="Vertical">
+                <ToolBar>
+                    <Button x:Name="btnVert1" Style="{StaticResource buttonStyle}" Click="SelectClick">
+                        <Button.Content>
+                            <Image/>
+                        </Button.Content>
+                    </Button>
+                    <Separator Style="{StaticResource separatorStyle}"/>
+                    <Button x:Name="btnVert2" Style="{StaticResource buttonStyle}" Click="ClearPointClick">
+                        <Button.Content>
+                            <Image/>
+                        </Button.Content>
+                    </Button>
+                    <Separator Style="{StaticResource separatorStyle}"/>
+                    <Button x:Name="btnVert3" Style="{StaticResource buttonStyle}" Click="ClearStrokeClick">
+                        <Button.Content>
+                            <Image/>
+                        </Button.Content>
+                    </Button>
+                    <Separator Style="{StaticResource separatorStyle}"/>
+                    <Button x:Name="btnVert4" Style="{StaticResource buttonStyle}" Click="InkClick">
+                        <Button.Content>
+                            <Image/>
+                        </Button.Content>
+                    </Button>
+                    <Separator Style="{StaticResource separatorStyle}"/>
+                </ToolBar>
+            </ToolBarTray>
+            <InkCanvas x:Name="inkCanvas" Grid.Column="1"></InkCanvas>
+        </Grid>
+        <StatusBar x:Name="statusBar" Grid.Row="3" Style="{StaticResource backgroundStyle}"></StatusBar>
     </Grid>
 </Window>
