@@ -13,6 +13,13 @@
             <Setter Property="ItemsControl.Foreground" Value="White"/>
             <Setter Property="ItemsControl.FontSize" Value="15"/>
         </Style>
+        <Style x:Key="buttonStyle2">
+            <Setter Property="ItemsControl.Height" Value="30"/>
+            <Setter Property="ItemsControl.Width" Value="70"/>
+            <Setter Property="ItemsControl.Foreground" Value="Black"/>
+            <Setter Property="ItemsControl.FontSize" Value="10"/>
+            <Setter Property="ItemsControl.Background" Value="AliceBlue"/>
+        </Style>
         <Style x:Key="separatorStyle">
             <Setter Property="ItemsControl.Background" Value="Black"/>
         </Style>
@@ -49,34 +56,26 @@
         </ToolBar>
         <Grid x:Name="grid2" Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="72"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <ToolBarTray Grid.Column="0" Orientation="Vertical">
                 <ToolBar>
-                    <Button x:Name="btnVert1" Style="{StaticResource buttonStyle}" Click="SelectClick">
-                        <Button.Content>
-                            <Image/>
-                        </Button.Content>
-                    </Button>
+                    <Border>
+                        <Button x:Name="btnVert1" Style="{StaticResource buttonStyle2}" Click="SelectClick" Content="Select"/>
+                    </Border>
                     <Separator Style="{StaticResource separatorStyle}"/>
-                    <Button x:Name="btnVert2" Style="{StaticResource buttonStyle}" Click="ClearPointClick">
-                        <Button.Content>
-                            <Image/>
-                        </Button.Content>
-                    </Button>
+                    <Border>
+                        <Button x:Name="btnVert2" Style="{StaticResource buttonStyle2}" Click="ClearPointClick" Content="Clear Point"/>
+                    </Border>
                     <Separator Style="{StaticResource separatorStyle}"/>
-                    <Button x:Name="btnVert3" Style="{StaticResource buttonStyle}" Click="ClearStrokeClick">
-                        <Button.Content>
-                            <Image/>
-                        </Button.Content>
-                    </Button>
+                    <Border>
+                        <Button x:Name="btnVert3" Style="{StaticResource buttonStyle2}" Click="ClearStrokeClick" Content="Clear Stroke"/>
+                    </Border>
                     <Separator Style="{StaticResource separatorStyle}"/>
-                    <Button x:Name="btnVert4" Style="{StaticResource buttonStyle}" Click="InkClick">
-                        <Button.Content>
-                            <Image/>
-                        </Button.Content>
-                    </Button>
+                    <Border>
+                        <Button x:Name="btnVert4" Style="{StaticResource buttonStyle2}" Click="InkClick" Content="Ink"/>
+                    </Border>
                     <Separator Style="{StaticResource separatorStyle}"/>
                 </ToolBar>
             </ToolBarTray>
