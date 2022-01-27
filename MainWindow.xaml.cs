@@ -76,5 +76,23 @@ namespace Board
         {
             inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
         }
+
+        private void LightRBChecked(object sender, RoutedEventArgs e)
+        {
+            menu.Background = new SolidColorBrush(Colors.AliceBlue);
+            statusBar.Background = new SolidColorBrush(Colors.AliceBlue);
+            toolBar.Background = new SolidColorBrush(Colors.AliceBlue);
+            toolBarTray.Background = new SolidColorBrush(Colors.AliceBlue);
+            inkCanvas.Background = new SolidColorBrush(Colors.White);
+        }
+
+        private void DarkRBChecked(object sender, RoutedEventArgs e)
+        {
+            menu.Background = new SolidColorBrush(Colors.Gray);
+            statusBar.Background = new SolidColorBrush(Colors.Gray);
+            toolBar.Background = new SolidColorBrush(Colors.Gray);
+            toolBarTray.Background = new SolidColorBrush(Colors.Gray);
+            inkCanvas.Background = new SolidColorBrush(Colors.LightGray);
+        }
     }
 }
