@@ -11,8 +11,4 @@
     <Content Include="board.ico" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
-
 </Project>
