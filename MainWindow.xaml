@@ -18,12 +18,19 @@
             <Setter Property="ItemsControl.Width" Value="70"/>
             <Setter Property="ItemsControl.Foreground" Value="Black"/>
             <Setter Property="ItemsControl.FontSize" Value="10"/>
-            <Setter Property="ItemsControl.Background" Value="AliceBlue"/>
+            <Setter Property="ItemsControl.Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.2,2" EndPoint="0,1">
+                        <GradientStop Color="Gray" Offset="0"/>
+                        <GradientStop Color="AliceBlue" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style x:Key="separatorStyle">
             <Setter Property="ItemsControl.Background" Value="Black"/>
         </Style>
-        <Style x:Key="backgroundStyle">
+        <Style x:Key="defaultStyle">
             <Setter Property="ItemsControl.Background" Value="AliceBlue"/>
         </Style>
     </Window.Resources>
@@ -34,14 +41,22 @@
             <RowDefinition/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Menu x:Name="menu" Grid.Row="0" FontSize="15" Style="{StaticResource backgroundStyle}">
+        <Menu x:Name="menu" Grid.Row="0" FontSize="15" Style="{StaticResource defaultStyle}">
             <MenuItem Header="File" Height="30">
                 <MenuItem Header="Clear All" Click="ClearAllClick"/>
                 <Separator Style="{StaticResource separatorStyle}"/>
                 <MenuItem Header="Exit" Click="ExitClick"/>
             </MenuItem>
+            <MenuItem Header="Settings" Height="30">
+                <MenuItem Header="Color Theme">
+                    <StackPanel>
+                        <RadioButton Content="Light" Checked="LightRBChecked"/>
+                        <RadioButton Content="Dark" Checked="DarkRBChecked"/>
+                    </StackPanel>
+                </MenuItem>
+            </MenuItem>
         </Menu>
-        <ToolBar x:Name="toolBar" Grid.Row="1">
+        <ToolBar x:Name="toolBar" Grid.Row="1" Style="{StaticResource defaultStyle}">
             <Separator Style="{StaticResource separatorStyle}" Margin="30 0 0 0"/>
             <Button x:Name="btnHor1" Background="Black" Style="{StaticResource buttonStyle}" Click="SBlackClick" Content="B"/>
             <Separator Style="{StaticResource separatorStyle}"/>
@@ -59,7 +74,7 @@
                 <ColumnDefinition Width="72"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ToolBarTray Grid.Column="0" Orientation="Vertical">
+            <ToolBarTray x:Name="toolBarTray" Grid.Column="0" Orientation="Vertical" Style="{StaticResource defaultStyle}">
                 <ToolBar>
                     <Border>
                         <Button x:Name="btnVert1" Style="{StaticResource buttonStyle2}" Click="SelectClick" Content="Select"/>
@@ -81,6 +96,6 @@
             </ToolBarTray>
             <InkCanvas x:Name="inkCanvas" Grid.Column="1"></InkCanvas>
         </Grid>
-        <StatusBar x:Name="statusBar" Grid.Row="3" Style="{StaticResource backgroundStyle}"></StatusBar>
+        <StatusBar x:Name="statusBar" Grid.Row="3" Style="{StaticResource defaultStyle}"></StatusBar>
     </Grid>
 </Window>
