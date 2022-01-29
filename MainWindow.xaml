@@ -94,8 +94,18 @@
                     <Separator Style="{StaticResource separatorStyle}"/>
                 </ToolBar>
             </ToolBarTray>
-            <InkCanvas x:Name="inkCanvas" Grid.Column="1"></InkCanvas>
+            <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <InkCanvas x:Name="inkCanvas">
+                    <InkCanvas.LayoutTransform>
+                        <ScaleTransform ScaleX="{Binding ElementName=slider, Path=Value}" ScaleY="{Binding ElementName=slider, Path=Value}"/>
+                    </InkCanvas.LayoutTransform>
+                </InkCanvas>
+            </ScrollViewer>
         </Grid>
-        <StatusBar x:Name="statusBar" Grid.Row="3" Style="{StaticResource defaultStyle}"></StatusBar>
+        <StatusBar x:Name="statusBar" Grid.Row="3" Style="{StaticResource defaultStyle}">
+            <StackPanel Orientation="Horizontal">
+                <Slider x:Name="slider" Value="1" Minimum="1" Maximum="100" Orientation="Horizontal" Width="200"/>
+            </StackPanel>
+        </StatusBar>
     </Grid>
 </Window>
