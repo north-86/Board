@@ -94,5 +94,10 @@ namespace Board
             toolBarTray.Background = new SolidColorBrush(Colors.Gray);
             inkCanvas.Background = new SolidColorBrush(Colors.LightGray);
         }
+
+        private void SliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            ((Slider)sender).SelectionEnd = slider.Value;
+        }
     }
 }
