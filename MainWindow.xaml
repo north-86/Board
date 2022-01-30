@@ -82,6 +82,16 @@
             <Separator Style="{StaticResource separatorStyle}"/>
             <Button x:Name="btnHor5" Background="Green" Style="{StaticResource buttonStyle}" Click="SGreenClick" Content="G"/>
             <Separator Style="{StaticResource separatorStyle}"/>
+            <Button x:Name="btnHor6" Background="Bisque" Style="{StaticResource buttonStyle}" Click="SBisqueClick" Content="B"/>
+            <Separator Style="{StaticResource separatorStyle}"/>
+            <Button x:Name="btnHor7" Background="Aquamarine" Style="{StaticResource buttonStyle}" Click="SAquamarineClick" Content="A"/>
+            <Separator Style="{StaticResource separatorStyle}"/>
+            <Button x:Name="btnHor8" Background="Chartreuse" Style="{StaticResource buttonStyle}" Click="SChartreuseClick" Content="C"/>
+            <Separator Style="{StaticResource separatorStyle}"/>
+            <Button x:Name="btnHor9" Background="DarkViolet" Style="{StaticResource buttonStyle}" Click="SDarkVioletClick" Content="D"/>
+            <Separator Style="{StaticResource separatorStyle}"/>
+            <Button x:Name="btnHor10" Background="Orange" Style="{StaticResource buttonStyle}" Click="SOrangeClick" Content="O"/>
+            <Separator Style="{StaticResource separatorStyle}"/>
         </ToolBar>
         <Grid x:Name="grid2" Grid.Row="2">
             <Grid.ColumnDefinitions>
