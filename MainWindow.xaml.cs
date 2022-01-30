@@ -57,6 +57,31 @@ namespace Board
             inkCanvas.DefaultDrawingAttributes.Color = Colors.Green;
         }
 
+        private void SBisqueClick(object sender, RoutedEventArgs e)
+        {
+            inkCanvas.DefaultDrawingAttributes.Color = Colors.Bisque;
+        }
+
+        private void SAquamarineClick(object sender, RoutedEventArgs e)
+        {
+            inkCanvas.DefaultDrawingAttributes.Color = Colors.Aquamarine;
+        }
+
+        private void SChartreuseClick(object sender, RoutedEventArgs e)
+        {
+            inkCanvas.DefaultDrawingAttributes.Color = Colors.Chartreuse;
+        }
+
+        private void SDarkVioletClick(object sender, RoutedEventArgs e)
+        {
+            inkCanvas.DefaultDrawingAttributes.Color = Colors.DarkViolet;
+        }
+
+        private void SOrangeClick(object sender, RoutedEventArgs e)
+        {
+            inkCanvas.DefaultDrawingAttributes.Color = Colors.Orange;
+        }
+
         private void SelectClick(object sender, RoutedEventArgs e)
         {
             inkCanvas.EditingMode = InkCanvasEditingMode.Select;
