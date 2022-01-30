@@ -55,6 +55,20 @@
                     </StackPanel>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="Help" Height="30">
+                <MenuItem Header="About Board">
+                    <FlowDocumentScrollViewer IsToolBarVisible="True" Height="120" Width="415">
+                        <FlowDocument>
+                            <Paragraph TextAlignment="Center" FontSize="15">
+                                Board
+                            </Paragraph>
+                            <Paragraph TextAlignment="Left" FontSize="13">
+                                This application allows you to draw, change, delete drawings.
+                            </Paragraph>
+                        </FlowDocument>
+                    </FlowDocumentScrollViewer>
+                </MenuItem>
+            </MenuItem>
         </Menu>
         <ToolBar x:Name="toolBar" Grid.Row="1" Style="{StaticResource defaultStyle}">
             <Separator Style="{StaticResource separatorStyle}" Margin="30 0 0 0"/>
@@ -104,7 +118,7 @@
         </Grid>
         <StatusBar x:Name="statusBar" Grid.Row="3" Style="{StaticResource defaultStyle}">
             <StackPanel Orientation="Horizontal">
-                <Slider x:Name="slider" Value="1" Minimum="1" Maximum="100" Orientation="Horizontal" Width="200"/>
+                <Slider x:Name="slider" Value="1" Minimum="1" Maximum="100" Orientation="Horizontal" Width="200" Margin="70 0 0 0" TickPlacement="BottomRight" IsSelectionRangeEnabled="True" SelectionStart="0" ValueChanged="SliderValueChanged"/>
             </StackPanel>
         </StatusBar>
     </Grid>
