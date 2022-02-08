@@ -50,6 +50,7 @@
             <MenuItem Header="Settings" Height="30">
                 <MenuItem Header="Color Theme">
                     <StackPanel>
+                        <RadioButton Content="Weightless" Checked="WeightlessRBChecked"/>
                         <RadioButton Content="Light" Checked="LightRBChecked"/>
                         <RadioButton Content="Dark" Checked="DarkRBChecked"/>
                     </StackPanel>

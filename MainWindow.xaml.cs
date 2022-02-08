@@ -102,6 +102,15 @@ namespace Board
             inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
         }
 
+        private void WeightlessRBChecked(object sender, RoutedEventArgs e)
+        {
+            menu.Background = new SolidColorBrush(Colors.White);
+            statusBar.Background = new SolidColorBrush(Colors.White);
+            toolBar.Background = new SolidColorBrush(Colors.White);
+            toolBarTray.Background = new SolidColorBrush(Colors.White);
+            inkCanvas.Background = new SolidColorBrush(Colors.White);
+        }
+
         private void LightRBChecked(object sender, RoutedEventArgs e)
         {
             menu.Background = new SolidColorBrush(Colors.AliceBlue);
