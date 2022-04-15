@@ -43,16 +43,17 @@
         </Grid.RowDefinitions>
         <Menu x:Name="menu" Grid.Row="0" FontSize="15" Style="{StaticResource defaultStyle}">
             <MenuItem Header="File" Height="30">
-                <MenuItem Header="Clear All" Click="ClearAllClick"/>
+                <MenuItem Header="Open" Click="Open_Click"/>
+                <MenuItem Header="Clear All" Click="ClearAll_Click"/>
                 <Separator Style="{StaticResource separatorStyle}"/>
-                <MenuItem Header="Exit" Click="ExitClick"/>
+                <MenuItem Header="Exit" Click="Exit_Click"/>
             </MenuItem>
             <MenuItem Header="Settings" Height="30">
                 <MenuItem Header="Color Theme">
                     <StackPanel>
-                        <RadioButton Content="Weightless" Checked="WeightlessRBChecked"/>
-                        <RadioButton Content="Light" Checked="LightRBChecked"/>
-                        <RadioButton Content="Dark" Checked="DarkRBChecked"/>
+                        <RadioButton Content="Weightless" Checked="WeightlessRB_Checked"/>
+                        <RadioButton Content="Light" Checked="LightRB_Checked"/>
+                        <RadioButton Content="Dark" Checked="DarkRB_Checked"/>
                     </StackPanel>
                 </MenuItem>
             </MenuItem>
@@ -73,25 +74,25 @@
         </Menu>
         <ToolBar x:Name="toolBar" Grid.Row="1" Style="{StaticResource defaultStyle}">
             <Separator Style="{StaticResource separatorStyle}" Margin="30 0 0 0"/>
-            <Button x:Name="btnHor1" Background="Black" Style="{StaticResource buttonStyle}" Click="SBlackClick" Content="B"/>
+            <Button x:Name="btnHor1" Background="Black" Style="{StaticResource buttonStyle}" Click="SBlack_Click" Content="B"/>
             <Separator Style="{StaticResource separatorStyle}"/>
-            <Button x:Name="btnHor2" Background="Red" Style="{StaticResource buttonStyle}" Click="SRedClick" Content="R"/>
+            <Button x:Name="btnHor2" Background="Red" Style="{StaticResource buttonStyle}" Click="SRed_Click" Content="R"/>
             <Separator Style="{StaticResource separatorStyle}"/>
-            <Button x:Name="btnHor3" Background="Yellow" Style="{StaticResource buttonStyle}" Click="SYellowClick" Content="Y"/>
+            <Button x:Name="btnHor3" Background="Yellow" Style="{StaticResource buttonStyle}" Click="SYellow_Click" Content="Y"/>
             <Separator Style="{StaticResource separatorStyle}"/>
-            <Button x:Name="btnHor4" Background="Blue" Style="{StaticResource buttonStyle}" Click="SBlueClick" Content="B"/>
+            <Button x:Name="btnHor4" Background="Blue" Style="{StaticResource buttonStyle}" Click="SBlue_Click" Content="B"/>
             <Separator Style="{StaticResource separatorStyle}"/>
-            <Button x:Name="btnHor5" Background="Green" Style="{StaticResource buttonStyle}" Click="SGreenClick" Content="G"/>
+            <Button x:Name="btnHor5" Background="Green" Style="{StaticResource buttonStyle}" Click="SGreen_Click" Content="G"/>
             <Separator Style="{StaticResource separatorStyle}"/>
-            <Button x:Name="btnHor6" Background="Bisque" Style="{StaticResource buttonStyle}" Click="SBisqueClick" Content="B"/>
+            <Button x:Name="btnHor6" Background="Bisque" Style="{StaticResource buttonStyle}" Click="SBisque_Click" Content="B"/>
             <Separator Style="{StaticResource separatorStyle}"/>
-            <Button x:Name="btnHor7" Background="Aquamarine" Style="{StaticResource buttonStyle}" Click="SAquamarineClick" Content="A"/>
+            <Button x:Name="btnHor7" Background="Aquamarine" Style="{StaticResource buttonStyle}" Click="SAquamarine_Click" Content="A"/>
             <Separator Style="{StaticResource separatorStyle}"/>
-            <Button x:Name="btnHor8" Background="Chartreuse" Style="{StaticResource buttonStyle}" Click="SChartreuseClick" Content="C"/>
+            <Button x:Name="btnHor8" Background="Chartreuse" Style="{StaticResource buttonStyle}" Click="SChartreuse_Click" Content="C"/>
             <Separator Style="{StaticResource separatorStyle}"/>
-            <Button x:Name="btnHor9" Background="DarkViolet" Style="{StaticResource buttonStyle}" Click="SDarkVioletClick" Content="D"/>
+            <Button x:Name="btnHor9" Background="DarkViolet" Style="{StaticResource buttonStyle}" Click="SDarkViolet_Click" Content="D"/>
             <Separator Style="{StaticResource separatorStyle}"/>
-            <Button x:Name="btnHor10" Background="Orange" Style="{StaticResource buttonStyle}" Click="SOrangeClick" Content="O"/>
+            <Button x:Name="btnHor10" Background="Orange" Style="{StaticResource buttonStyle}" Click="SOrange_Click" Content="O"/>
             <Separator Style="{StaticResource separatorStyle}"/>
         </ToolBar>
         <Grid x:Name="grid2" Grid.Row="2">
@@ -102,19 +103,19 @@
             <ToolBarTray x:Name="toolBarTray" Grid.Column="0" Orientation="Vertical" Style="{StaticResource defaultStyle}">
                 <ToolBar>
                     <Border>
-                        <Button x:Name="btnVert1" Style="{StaticResource buttonStyle2}" Click="SelectClick" Content="Select"/>
+                        <Button x:Name="btnVert1" Style="{StaticResource buttonStyle2}" Click="Select_Click" Content="Select"/>
                     </Border>
                     <Separator Style="{StaticResource separatorStyle}"/>
                     <Border>
-                        <Button x:Name="btnVert2" Style="{StaticResource buttonStyle2}" Click="ClearPointClick" Content="Clear Point"/>
+                        <Button x:Name="btnVert2" Style="{StaticResource buttonStyle2}" Click="ClearPoint_Click" Content="Clear Point"/>
                     </Border>
                     <Separator Style="{StaticResource separatorStyle}"/>
                     <Border>
-                        <Button x:Name="btnVert3" Style="{StaticResource buttonStyle2}" Click="ClearStrokeClick" Content="Clear Stroke"/>
+                        <Button x:Name="btnVert3" Style="{StaticResource buttonStyle2}" Click="ClearStroke_Click" Content="Clear Stroke"/>
                     </Border>
                     <Separator Style="{StaticResource separatorStyle}"/>
                     <Border>
-                        <Button x:Name="btnVert4" Style="{StaticResource buttonStyle2}" Click="InkClick" Content="Ink"/>
+                        <Button x:Name="btnVert4" Style="{StaticResource buttonStyle2}" Click="Ink_Click" Content="Ink"/>
                     </Border>
                     <Separator Style="{StaticResource separatorStyle}"/>
                 </ToolBar>
@@ -124,12 +125,13 @@
                     <InkCanvas.LayoutTransform>
                         <ScaleTransform ScaleX="{Binding ElementName=slider, Path=Value}" ScaleY="{Binding ElementName=slider, Path=Value}"/>
                     </InkCanvas.LayoutTransform>
+                    <Image x:Name="image"/>
                 </InkCanvas>
             </ScrollViewer>
         </Grid>
         <StatusBar x:Name="statusBar" Grid.Row="3" Style="{StaticResource defaultStyle}">
             <StackPanel Orientation="Horizontal">
-                <Slider x:Name="slider" Value="1" Minimum="1" Maximum="100" Orientation="Horizontal" Width="200" Margin="70 0 0 0" TickPlacement="BottomRight" IsSelectionRangeEnabled="True" SelectionStart="0" ValueChanged="SliderValueChanged"/>
+                <Slider x:Name="slider" Value="1" Minimum="1" Maximum="100" Orientation="Horizontal" Width="200" Margin="70 0 0 0" TickPlacement="BottomRight" IsSelectionRangeEnabled="True" SelectionStart="0" ValueChanged="SliderValue_Changed"/>
             </StackPanel>
         </StatusBar>
     </Grid>
