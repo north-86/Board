@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,87 +24,97 @@ namespace Board
             InitializeComponent();
         }
 
-        private void ClearAllClick(object sender, RoutedEventArgs e)
+        private void Open_Click(object sender, RoutedEventArgs e)
         {
-            inkCanvas.Strokes.Clear();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Files (*.jpg)|*.jpg|All files(*.*)|*.*";
+            openFileDialog.ShowDialog();
+            string filename = openFileDialog.FileName;
+            image.Source = new BitmapImage(new Uri(filename, UriKind.Absolute));
         }
 
-        private void ExitClick(object sender, RoutedEventArgs e)
+        private void ClearAll_Click(object sender, RoutedEventArgs e)
+        {
+            inkCanvas.Strokes.Clear();
+            image.Source = null;
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void SBlackClick(object sender, RoutedEventArgs e)
+        private void SBlack_Click(object sender, RoutedEventArgs e)
         {
             inkCanvas.DefaultDrawingAttributes.Color = Colors.Black;
         }
 
-        private void SRedClick(object sender, RoutedEventArgs e)
+        private void SRed_Click(object sender, RoutedEventArgs e)
         {
             inkCanvas.DefaultDrawingAttributes.Color = Colors.Red;
         }
 
-        private void SYellowClick(object sender, RoutedEventArgs e)
+        private void SYellow_Click(object sender, RoutedEventArgs e)
         {
             inkCanvas.DefaultDrawingAttributes.Color = Colors.Yellow;
         }
 
-        private void SBlueClick(object sender, RoutedEventArgs e)
+        private void SBlue_Click(object sender, RoutedEventArgs e)
         {
             inkCanvas.DefaultDrawingAttributes.Color = Colors.Blue;
         }
 
-        private void SGreenClick(object sender, RoutedEventArgs e)
+        private void SGreen_Click(object sender, RoutedEventArgs e)
         {
             inkCanvas.DefaultDrawingAttributes.Color = Colors.Green;
         }
 
-        private void SBisqueClick(object sender, RoutedEventArgs e)
+        private void SBisque_Click(object sender, RoutedEventArgs e)
         {
             inkCanvas.DefaultDrawingAttributes.Color = Colors.Bisque;
         }
 
-        private void SAquamarineClick(object sender, RoutedEventArgs e)
+        private void SAquamarine_Click(object sender, RoutedEventArgs e)
         {
             inkCanvas.DefaultDrawingAttributes.Color = Colors.Aquamarine;
         }
 
-        private void SChartreuseClick(object sender, RoutedEventArgs e)
+        private void SChartreuse_Click(object sender, RoutedEventArgs e)
         {
             inkCanvas.DefaultDrawingAttributes.Color = Colors.Chartreuse;
         }
 
-        private void SDarkVioletClick(object sender, RoutedEventArgs e)
+        private void SDarkViolet_Click(object sender, RoutedEventArgs e)
         {
             inkCanvas.DefaultDrawingAttributes.Color = Colors.DarkViolet;
         }
 
-        private void SOrangeClick(object sender, RoutedEventArgs e)
+        private void SOrange_Click(object sender, RoutedEventArgs e)
         {
             inkCanvas.DefaultDrawingAttributes.Color = Colors.Orange;
         }
 
-        private void SelectClick(object sender, RoutedEventArgs e)
+        private void Select_Click(object sender, RoutedEventArgs e)
         {
             inkCanvas.EditingMode = InkCanvasEditingMode.Select;
         }
 
-        private void ClearPointClick(object sender, RoutedEventArgs e)
+        private void ClearPoint_Click(object sender, RoutedEventArgs e)
         {
             inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
         }
 
-        private void ClearStrokeClick(object sender, RoutedEventArgs e)
+        private void ClearStroke_Click(object sender, RoutedEventArgs e)
         {
             inkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
         } 
 
-        private void InkClick(object sender, RoutedEventArgs e)
+        private void Ink_Click(object sender, RoutedEventArgs e)
         {
             inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
         }
 
-        private void WeightlessRBChecked(object sender, RoutedEventArgs e)
+        private void WeightlessRB_Checked(object sender, RoutedEventArgs e)
         {
             menu.Background = new SolidColorBrush(Colors.White);
             statusBar.Background = new SolidColorBrush(Colors.White);
@@ -111,7 +123,7 @@ namespace Board
             inkCanvas.Background = new SolidColorBrush(Colors.White);
         }
 
-        private void LightRBChecked(object sender, RoutedEventArgs e)
+        private void LightRB_Checked(object sender, RoutedEventArgs e)
         {
             menu.Background = new SolidColorBrush(Colors.AliceBlue);
             statusBar.Background = new SolidColorBrush(Colors.AliceBlue);
@@ -120,7 +132,7 @@ namespace Board
             inkCanvas.Background = new SolidColorBrush(Colors.White);
         }
 
-        private void DarkRBChecked(object sender, RoutedEventArgs e)
+        private void DarkRB_Checked(object sender, RoutedEventArgs e)
         {
             menu.Background = new SolidColorBrush(Colors.Gray);
             statusBar.Background = new SolidColorBrush(Colors.Gray);
@@ -129,7 +141,7 @@ namespace Board
             inkCanvas.Background = new SolidColorBrush(Colors.LightGray);
         }
 
-        private void SliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void SliderValue_Changed(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             ((Slider)sender).SelectionEnd = slider.Value;
         }
